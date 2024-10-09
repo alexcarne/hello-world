@@ -1,24 +1,22 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+let count = parseInt(document.getElementById("account").textContent)
+  
+const buttons = document.querySelectorAll('.btn');
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const decreaseButton = buttons[0];
+const resetButton = buttons[1];
+const increaseButton = buttons[2];
+const result = document.getElementById("account")
 
-setupCounter(document.querySelector('#counter'))
+decreaseButton.addEventListener("click", () => {
+  count--;
+  result.textContent = count
+})
+
+resetButton.addEventListener("click", () => {
+  count= 0;
+  result.textContent = count
+})
+increaseButton.addEventListener("click", () => {
+  count++;
+  result.textContent = count
+})
